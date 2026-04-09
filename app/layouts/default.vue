@@ -1,8 +1,9 @@
 <template>
   <div class="min-h-screen flex flex-col font-sans selection:bg-primary-500 selection:text-white">
-    <AppNavbar @open-cart="isCartOpen = true" />
+    <AppNavbar @open-cart="isCartOpen = true" @open-favorites="isFavoritesOpen = true" />
     
     <CartDrawer :is-open="isCartOpen" @close="isCartOpen = false" />
+    <FavoritesDrawer :is-open="isFavoritesOpen" @close="isFavoritesOpen = false" />
     <Toast />
     
     <main class="flex-grow">
@@ -18,6 +19,7 @@
 <script setup>
 import { ref } from 'vue'
 const isCartOpen = ref(false)
+const isFavoritesOpen = ref(false)
 </script>
 
 <style>

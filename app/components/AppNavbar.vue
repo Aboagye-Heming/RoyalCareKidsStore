@@ -27,14 +27,21 @@
           v-for="link in navLinks"
           :key="link.path"
           :to="link.path"
-          class="text-sm font-black tracking-widest uppercase hover:text-primary-500 transition-colors duration-300"
+          class="text-sm font-black tracking-widest uppercase transition-all duration-300 relative py-1 group"
           :class="[
             isScrolled || isMobileMenuOpen || !isHomePage
-              ? 'text-slate-900'
-              : 'text-white/80',
+              ? (route.path === link.path ? 'text-primary-500' : 'text-slate-900 hover:text-primary-500')
+              : (route.path === link.path ? 'text-white' : 'text-white/60 hover:text-white'),
           ]"
         >
           {{ link.name }}
+          <span 
+            class="absolute -bottom-1 left-0 h-0.5 bg-primary-500 transition-all duration-300"
+            :class="[
+              route.path === link.path ? 'w-full' : 'w-0 group-hover:w-1/2',
+              !(isScrolled || isMobileMenuOpen || !isHomePage) && route.path === link.path ? 'bg-white' : ''
+            ]"
+          ></span>
         </NuxtLink>
       </div>
 
@@ -42,6 +49,7 @@
       <div class="flex items-center gap-2 md:gap-4">
         <!-- Favorites -->
         <button
+          @click="$emit('open-favorites')"
           class="p-2 relative group"
           :class="[
             isScrolled || isMobileMenuOpen || !isHomePage
@@ -52,6 +60,7 @@
           <Icon
             name="lucide:heart"
             class="text-xl group-hover:scale-110 transition-transform"
+            :class="{ 'fill-primary-500 text-primary-500': favorites.length > 0 }"
           />
           <span
             v-if="favorites.length"
@@ -134,78 +143,72 @@
           ></div>
         </transition>
 
-        <!-- Morphic Glass Card -->
+        <!-- Silicon Valley Glassy Fade Card -->
         <transition
-          enter-active-class="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          enter-from-class="opacity-0 scale-90 translate-y-8"
-          enter-to-class="opacity-100 scale-100 translate-y-0"
-          leave-active-class="transition-all duration-300 ease-[cubic-bezier(0.7,0,0.84,0)]"
-          leave-from-class="opacity-100 scale-100 translate-y-0"
-          leave-to-class="opacity-0 scale-95 translate-y-4"
+          enter-active-class="transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+          enter-from-class="opacity-0 blur-2xl scale-110"
+          enter-to-class="opacity-100 blur-0 scale-100"
+          leave-active-class="transition-all duration-500 ease-[cubic-bezier(0.755,0.05,0.855,0.06)]"
+          leave-from-class="opacity-100 blur-0 scale-100"
+          leave-to-class="opacity-0 blur-2xl scale-110"
         >
           <div
             v-if="isMobileMenuOpen"
-            class="relative w-full max-w-sm bg-white/40 backdrop-blur-3xl rounded-[3rem] border border-white/40 shadow-[0_32px_128px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col"
+            class="relative w-full max-w-sm aspect-[4/5] bg-white/40 backdrop-blur-3xl rounded-[4rem] border border-white/40 shadow-[0_32px_128px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col"
           >
             <!-- Dynamic Mesh Gradient Background -->
             <div class="absolute inset-0 -z-10 opacity-30">
               <div
-                class="absolute top-[-20%] left-[-20%] w-[100%] h-[100%] bg-primary-400/30 rounded-full blur-[100px] animate-pulse"
+                class="absolute top-[-20%] left-[-20%] w-[100%] h-[100%] bg-primary-400/40 rounded-full blur-[100px] animate-pulse"
               ></div>
               <div
-                class="absolute bottom-[-20%] right-[-20%] w-[100%] h-[100%] bg-secondary-400/30 rounded-full blur-[100px] animate-pulse"
+                class="absolute bottom-[-20%] right-[-20%] w-[100%] h-[100%] bg-secondary-400/40 rounded-full blur-[100px] animate-pulse"
                 style="animation-delay: 1s"
               ></div>
             </div>
 
-            <!-- Header -->
-            <div class="flex items-center justify-between p-8">
-              <div class="flex items-center gap-3">
-                <div class="bg-white p-2 rounded-xl shadow-sm">
-                  <img src="/logo.png" alt="Royal Care" class="h-6 w-auto" />
-                </div>
+            <!-- Header (Centered Logo) -->
+            <div class="flex flex-col items-center pt-12 pb-6 text-center">
+              <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 mb-2">
+                <img src="/logo.png" alt="Royal Care" class="h-8 w-auto" />
               </div>
-              <button
-                @click="isMobileMenuOpen = false"
-                class="w-10 h-10 rounded-2xl bg-white/50 flex items-center justify-center text-slate-900 active:scale-95 transition-all border border-white/50"
-              >
-                <Icon name="lucide:x" class="text-xl" />
-              </button>
+              <span class="text-[9px] font-black text-primary-600 uppercase tracking-[0.4em]">Navigator</span>
             </div>
 
-            <!-- Refined Tech Links (No numbers/arrows) -->
+            <!-- Staggered Glassy Links (Balanced Spacing) -->
             <div
-              class="flex-1 px-8 py-10 space-y-8 flex flex-col justify-center text-center"
+              class="flex-1 px-8 py-4 flex flex-col justify-center space-y-2 text-center"
             >
               <NuxtLink
                 v-for="(link, idx) in navLinks"
                 :key="link.path"
                 :to="link.path"
                 @click="isMobileMenuOpen = false"
-                class="group flex flex-col items-center p-4 rounded-3xl hover:bg-white/40 transition-all border border-transparent hover:border-white/60"
+                class="group relative py-5 rounded-[2.5rem] transition-all duration-500 hover:bg-white/40 border border-transparent hover:border-white/60 animate-in fade-in zoom-in-95"
+                :style="{ animationDelay: `${idx * 100}ms` }"
               >
-                <span
-                  class="text-[8px] font-black text-primary-500 uppercase tracking-[0.4em] mb-2 opacity-0 group-hover:opacity-100 transition-all"
-                  >Explore</span
-                >
-                <span
-                  class="text-3xl font-black text-slate-900 tracking-tighter group-active:scale-95 transition-all"
-                  >{{ link.name }}</span
-                >
+                <div class="flex flex-col items-center">
+                  <span
+                    class="text-[9px] font-black text-primary-500 uppercase tracking-[0.4em] mb-1 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                    >Discover</span
+                  >
+                  <span
+                    class="text-4xl font-black text-slate-900 tracking-tighter group-active:scale-95 transition-all duration-500"
+                    >{{ link.name }}</span
+                  >
+                </div>
               </NuxtLink>
             </div>
 
-            <!-- Futuristic Footer / Status Ticker -->
-            <div class="p-8 mt-4 border-t border-white/20 bg-white/20">
-              <div class="flex flex-col gap-6">
-                <NuxtLink
-                  to="/shop"
-                  @click="isMobileMenuOpen = false"
-                  class="block w-full py-5 bg-slate-900 text-white text-center rounded-2xl font-black uppercase tracking-widest shadow-xl active:scale-95 transition-all text-xs"
-                >
-                  Enter Marketplace
-                </NuxtLink>
-              </div>
+            <!-- Futuristic Footer -->
+            <div class="p-10 flex justify-center">
+              <NuxtLink
+                to="/shop"
+                @click="isMobileMenuOpen = false"
+                class="block w-full py-6 bg-slate-900 text-white text-center rounded-[2rem] font-black uppercase tracking-widest shadow-2xl active:scale-95 transition-all text-[10px]"
+              >
+                Explore Marketplace
+              </NuxtLink>
             </div>
           </div>
         </transition>
@@ -219,7 +222,7 @@ import { ref, onMounted, onUnmounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import { useCart } from "~/composables/useCart";
 
-defineEmits(["open-cart"]);
+defineEmits(["open-cart", "open-favorites"]);
 
 const route = useRoute();
 const { cartCount, favorites } = useCart();

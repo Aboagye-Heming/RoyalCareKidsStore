@@ -29,7 +29,7 @@
           <div class="relative group">
             <div class="absolute -inset-4 bg-primary-100 rounded-[3rem] rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
             <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-square lg:aspect-[4/5]">
-              <img src="/images/ceo.png" alt="CEO of Royal Care Kids Store" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="/images/royal.png" alt="CEO of Royal Care Kids Store" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
             <!-- Floating badge -->
             <div class="absolute -bottom-10 -right-4 md:-right-10 w-40 h-40 md:w-48 md:h-48 bg-white rounded-full shadow-2xl flex flex-col items-center justify-center p-6 text-center border-8 border-slate-50">
