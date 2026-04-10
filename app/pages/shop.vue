@@ -66,7 +66,7 @@
             :key="page"
             @click="currentPage = page"
             class="min-w-[48px] h-12 px-4 rounded-2xl transition-all shadow-lg flex items-center justify-center font-black text-sm z-10"
-            :class="[Number(currentPage) === Number(page) ? 'bg-rainbow-gradient animate-rainbow bg-200% text-white border-b-4 border-primary-700' : 'bg-slate-50 text-slate-900 hover:bg-primary-500 hover:text-white']"
+            :class="[Number(currentPage) === Number(page) ? 'bg-primary-500 text-white border-b-4 border-primary-700' : 'bg-slate-50 text-slate-900 hover:bg-primary-500 hover:text-white']"
           >
             {{ page }}
           </button>

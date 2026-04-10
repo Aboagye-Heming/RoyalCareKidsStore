@@ -154,7 +154,7 @@
         >
           <div
             v-if="isMobileMenuOpen"
-            class="relative w-full max-w-sm aspect-[4/5] bg-white/40 backdrop-blur-3xl rounded-[4rem] border border-white/40 shadow-[0_32px_128px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col"
+            class="relative w-full max-w-sm bg-white/40 backdrop-blur-3xl rounded-[4rem] border border-white/40 shadow-[0_32px_128px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col max-h-[85vh]"
           >
             <!-- Dynamic Mesh Gradient Background -->
             <div class="absolute inset-0 -z-10 opacity-30">
@@ -177,14 +177,14 @@
 
             <!-- Staggered Glassy Links (Balanced Spacing) -->
             <div
-              class="flex-1 px-8 py-4 flex flex-col justify-center space-y-2 text-center"
+              class="flex-1 px-8 py-4 flex flex-col justify-center space-y-1 text-center overflow-y-auto"
             >
               <NuxtLink
                 v-for="(link, idx) in navLinks"
                 :key="link.path"
                 :to="link.path"
                 @click="isMobileMenuOpen = false"
-                class="group relative py-5 rounded-[2.5rem] transition-all duration-500 hover:bg-white/40 border border-transparent hover:border-white/60 animate-in fade-in zoom-in-95"
+                class="group relative py-4 rounded-[2.5rem] transition-all duration-500 hover:bg-white/40 border border-transparent hover:border-white/60 animate-in fade-in zoom-in-95"
                 :style="{ animationDelay: `${idx * 100}ms` }"
               >
                 <div class="flex flex-col items-center">
@@ -193,7 +193,7 @@
                     >Discover</span
                   >
                   <span
-                    class="text-4xl font-black text-slate-900 tracking-tighter group-active:scale-95 transition-all duration-500"
+                    class="text-3xl font-black text-slate-900 tracking-tighter group-active:scale-95 transition-all duration-500"
                     >{{ link.name }}</span
                   >
                 </div>
@@ -235,6 +235,7 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "Shop", path: "/shop" },
   { name: "About", path: "/about" },
+  { name: "FAQs", path: "/faqs" },
   { name: "Contact", path: "/contact" },
 ];
 
