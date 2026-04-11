@@ -183,7 +183,7 @@
                 v-for="(link, idx) in navLinks"
                 :key="link.path"
                 :to="link.path"
-                @click="isMobileMenuOpen = false"
+                @click="handleNavClick(link.path)"
                 class="group relative py-4 rounded-[2.5rem] transition-all duration-500 hover:bg-white/40 border border-transparent hover:border-white/60 animate-in fade-in zoom-in-95"
                 :style="{ animationDelay: `${idx * 100}ms` }"
               >
@@ -204,7 +204,7 @@
             <div class="p-10 flex justify-center">
               <NuxtLink
                 to="/shop"
-                @click="isMobileMenuOpen = false"
+                @click="handleNavClick('/shop')"
                 class="block w-full py-6 bg-slate-900 text-white text-center rounded-[2rem] font-black uppercase tracking-widest shadow-2xl active:scale-95 transition-all text-[10px]"
               >
                 Explore Marketplace
@@ -241,6 +241,16 @@ const navLinks = [
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50;
+};
+
+const handleNavClick = (path) => {
+  isMobileMenuOpen.value = false;
+  if (route.path === path) {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 };
 
 onMounted(() => {
