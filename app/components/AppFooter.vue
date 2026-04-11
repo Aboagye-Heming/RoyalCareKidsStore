@@ -59,6 +59,7 @@
             <li v-for="link in links" :key="link.name">
               <NuxtLink
                 :to="link.path"
+                @click="handleQuickLinkClick"
                 class="text-slate-400 hover:text-primary-500 transition-colors duration-300"
               >
                 {{ link.name }}
@@ -118,6 +119,13 @@
 </template>
 
 <script setup>
+const handleQuickLinkClick = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 const links = [
   { name: "Home", path: "/" },
   { name: "Shop All", path: "/shop" },
