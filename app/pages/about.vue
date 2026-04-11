@@ -21,12 +21,12 @@
               class="absolute -inset-4 bg-primary-100 rounded-[3rem] rotate-3 group-hover:rotate-6 transition-transform duration-500"
             ></div>
             <div
-              class="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-square lg:aspect-[4/5]"
+              class="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/5]"
             >
               <img
                 src="/images/royal.png"
                 alt="CEO of Royal Care Kids Store"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
                 width="800"
                 height="1000"
