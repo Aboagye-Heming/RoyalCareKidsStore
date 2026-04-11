@@ -25,7 +25,7 @@
           <div class="space-y-12">
             <div>
               <h2 class="text-3xl font-black text-slate-900 mb-8">
-                Visit Our Boutique
+                Service & Delivery
               </h2>
               <div
                 class="flex items-start gap-6 p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:border-primary-200 transition-colors"
@@ -41,8 +41,7 @@
                   </h4>
                   <p class="text-slate-600 leading-relaxed text-lg">
                     📍 Accra, Ghana<br />
-                    High-street, East Legon<br />
-                    (Near the A&C Mall)
+                    Delivery to everywhere
                   </p>
                 </div>
               </div>
@@ -58,7 +57,7 @@
                   <Icon name="lucide:phone" class="text-white text-xl" />
                 </div>
                 <h4 class="font-bold text-slate-900 mb-2">Phone</h4>
-                <p class="text-slate-600">+233 (0) 55 123 4567</p>
+                <p class="text-slate-600">+233 50 158 7398</p>
               </div>
               <div
                 class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100"

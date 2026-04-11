@@ -5,9 +5,9 @@
       <div class="overflow-hidden">
         <img 
           ref="loaderText" 
-          src="/logo.png" 
+          src="/logo-vibrant.png" 
           alt="Royal Care Kids Store" 
-          class="h-48 w-auto transform translate-y-full opacity-0 mix-blend-multiply"
+          class="h-48 w-auto transform translate-y-full opacity-0"
         />
       </div>
     </div>

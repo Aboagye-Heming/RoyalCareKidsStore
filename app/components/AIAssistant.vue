@@ -24,7 +24,7 @@
         <div class="p-6 border-b border-white/20 bg-white/20 flex items-center justify-between">
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg relative overflow-hidden group">
-              <img src="/logo.png" alt="Royal Assistant" class="w-8 h-8 object-contain" />
+              <img src="/logo-vibrant.png" alt="Royal Assistant" class="w-8 h-8 object-contain" />
               <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-4 border-white/50 rounded-full z-20"></div>
             </div>
             <div>

@@ -22,8 +22,12 @@
         </div>
 
         <!-- Content -->
-        <div class="container mx-auto px-6 relative z-10 h-full flex items-center pt-20">
-          <div class="flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
+        <div
+          class="container mx-auto px-6 relative z-10 h-full flex items-center pt-20"
+        >
+          <div
+            class="flex flex-col lg:flex-row items-center justify-between gap-16 w-full"
+          >
             <div class="max-w-3xl">
               <span
                 class="hero-tag inline-block px-4 py-2 bg-primary-500 text-white text-xs font-black uppercase tracking-[0.3em] rounded-full mb-8 transform -translate-y-10 opacity-0"
@@ -33,8 +37,7 @@
               <h1
                 class="hero-title text-5xl md:text-9xl font-black text-white leading-[0.9] tracking-tighter mb-8 transform -translate-y-10 opacity-0"
                 v-html="slide.title"
-              >
-              </h1>
+              ></h1>
               <p
                 class="hero-description text-xl md:text-2xl text-white/90 leading-relaxed mb-12 transform -translate-y-10 opacity-0"
               >
@@ -81,13 +84,19 @@
       </div>
 
       <!-- Carousel Indicators -->
-      <div class="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-6">
+      <div
+        class="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-6"
+      >
         <button
           v-for="(_, index) in slides"
           :key="index"
           @click="setActiveSlide(index)"
           class="w-1 transition-all duration-500 rounded-full"
-          :class="activeIndex === index ? 'h-12 bg-primary-500' : 'h-6 bg-white/30 hover:bg-white/50'"
+          :class="
+            activeIndex === index
+              ? 'h-12 bg-primary-500'
+              : 'h-6 bg-white/30 hover:bg-white/50'
+          "
         ></button>
       </div>
 
@@ -261,14 +270,33 @@
                 />
               </div>
               <div>
-                <h4 class="font-bold text-slate-900">
+                <h4 class="font-bold text-slate-900 leading-none mb-1">
                   {{ testimonial.author }}
                 </h4>
-                <p
-                  class="text-slate-400 text-sm tracking-widest uppercase font-bold"
-                >
-                  {{ testimonial.role }}
-                </p>
+                <div class="flex items-center gap-2">
+                  <p
+                    class="text-slate-400 text-[10px] tracking-widest uppercase font-black"
+                  >
+                    {{ testimonial.role }}
+                  </p>
+                  <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                  <a
+                    v-if="testimonial.link"
+                    :href="testimonial.link"
+                    target="_blank"
+                    class="text-primary-500 text-[10px] font-black uppercase tracking-widest hover:underline flex items-center gap-1"
+                  >
+                    <Icon
+                      :name="
+                        testimonial.platform === 'Instagram'
+                          ? 'simple-icons:instagram'
+                          : 'simple-icons:facebook'
+                      "
+                      class="text-xs"
+                    />
+                    View Comment
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -303,7 +331,7 @@
             class="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white font-bold"
           >
             <Icon name="lucide:truck" class="text-2xl" />
-            <span>Accra Delivery</span>
+            <span>Nationwide Delivery</span>
           </div>
           <div
             class="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white font-bold"
@@ -326,54 +354,64 @@ const autoplayInterval = ref(null);
 
 const slides = [
   {
-    tag: "Est. 2024 | Accra",
+    tag: "Premium Kids Store",
     title: 'Your Little <br /> <span class="text-primary-500">Royal</span>',
-    description: "Baby & mothercare essentials curated with love. Clothing, accessories, gifts, and premium care items.",
-    image: "/images/hero-nursery.png",
+    description:
+      "Baby & mothercare essentials curated with love. Clothing, accessories, gifts, and premium care items.",
+    image: "/images/hero-nursery.jpg",
     cta: "Shop Collection",
-    link: "/shop"
+    link: "/shop",
   },
   {
     tag: "Premium Quality",
-    title: 'Pure <span class="text-primary-500">Comfort</span> <br /> For Tiny Ones',
-    description: "Organic cotton fabrics and gentle textures that embrace your baby with the softness they deserve.",
-    image: "/images/hero-organic.png",
+    title:
+      'Pure <span class="text-primary-500">Comfort</span> <br /> For Tiny Ones',
+    description:
+      "Organic cotton fabrics and gentle textures that embrace your baby with the softness they deserve.",
+    image: "/images/hero-organic.jpg",
     cta: "Explore Apparel",
-    link: "/shop"
+    link: "/shop",
   },
   {
     tag: "Boutique Selection",
-    title: 'Modern <span class="text-primary-500">Essentials</span> <br /> For Parents',
-    description: "Carefully handpicked items that make your parenting journey more beautiful and organized.",
-    image: "/images/hero-accessories.png",
+    title:
+      'Modern <span class="text-primary-500">Essentials</span> <br /> For Parents',
+    description:
+      "Carefully handpicked items that make your parenting journey more beautiful and organized.",
+    image: "/images/hero-accessories.jpg",
     cta: "View Accessories",
-    link: "/shop"
-  }
+    link: "/shop",
+  },
 ];
 
 const runAnimations = () => {
   // Select ONLY the active slide to animate its children
   const activeSlideClass = ".opacity-100.z-10";
-  
-  gsap.fromTo(`${activeSlideClass} .hero-tag`, 
+
+  gsap.fromTo(
+    `${activeSlideClass} .hero-tag`,
     { y: -20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, ease: "power4.out" }
+    { y: 0, opacity: 1, duration: 0.8, ease: "power4.out" },
   );
-  gsap.fromTo(`${activeSlideClass} .hero-title`, 
+  gsap.fromTo(
+    `${activeSlideClass} .hero-title`,
     { y: -20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, delay: 0.1, ease: "power4.out" }
+    { y: 0, opacity: 1, duration: 0.8, delay: 0.1, ease: "power4.out" },
   );
-  gsap.fromTo(`${activeSlideClass} .hero-description`, 
+  gsap.fromTo(
+    `${activeSlideClass} .hero-description`,
     { y: -20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power4.out" }
+    { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power4.out" },
   );
-  gsap.fromTo(`${activeSlideClass} .hero-actions`, 
+  gsap.fromTo(
+    `${activeSlideClass} .hero-actions`,
     { y: -20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, delay: 0.3, ease: "power4.out" }
+    { y: 0, opacity: 1, duration: 0.8, delay: 0.3, ease: "power4.out" },
   );
-  gsap.fromTo(`${activeSlideClass} .hero-floating`, 
+  gsap.fromTo(
+    `${activeSlideClass} .hero-floating`,
     { x: 30, opacity: 0 },
-    { x: 0, opacity: 1, duration: 1.2, delay: 0.4, ease: "power4.out" }
+    { x: 0, opacity: 1, duration: 1.2, delay: 0.4, ease: "power4.out" },
   );
 };
 
@@ -452,6 +490,8 @@ const testimonials = [
     author: "Sarah Mensah",
     role: "Mother of 2",
     avatar: "https://i.pravatar.cc/150?u=sarah",
+    platform: "Instagram",
+    link: "https://instagram.com/RoyalCareKidsStore",
   },
   {
     id: 2,
@@ -459,6 +499,8 @@ const testimonials = [
     author: "Kofi Owusu",
     role: "Happy Customer",
     avatar: "https://i.pravatar.cc/150?u=kofi",
+    platform: "Instagram",
+    link: "https://instagram.com/RoyalCareKidsStore",
   },
   {
     id: 3,
@@ -466,6 +508,8 @@ const testimonials = [
     author: "Akosua Addo",
     role: "New Mom",
     avatar: "https://i.pravatar.cc/150?u=akosua",
+    platform: "Facebook",
+    link: "https://www.facebook.com/RoyalCareKidsStore",
   },
 ];
 

@@ -14,7 +14,7 @@
           class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 group-hover:scale-105 transition-all duration-500"
         >
           <img
-            src="/logo.png"
+            src="/logo-vibrant.png"
             alt="Royal Care Kids Store"
             class="h-8 md:h-10 w-auto"
           />
@@ -170,7 +170,7 @@
             <!-- Header (Centered Logo) -->
             <div class="flex flex-col items-center pt-12 pb-6 text-center">
               <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 mb-2">
-                <img src="/logo.png" alt="Royal Care" class="h-8 w-auto" />
+                <img src="/logo-vibrant.png" alt="Royal Care" class="h-8 w-auto" />
               </div>
               <span class="text-[9px] font-black text-primary-600 uppercase tracking-[0.4em]">Navigator</span>
             </div>

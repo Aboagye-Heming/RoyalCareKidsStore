@@ -162,12 +162,12 @@ const faqs = [
   {
     category: 'orders',
     question: 'Do you deliver across Accra?',
-    answer: 'Yes! We offer premium delivery services across the metropolitan Accra region. Standard delivery takes 1-2 business days, while express delivery options are available for selected neighborhoods.'
+    answer: 'Yes! We offer premium delivery services across the metropolitan Accra region and nationwide. Standard delivery takes 1-2 business days, while express delivery options are available for most neighborhoods.'
   },
   {
     category: 'orders',
     question: 'How can I pay for my order?',
-    answer: 'We accept Mobile Money (MoMo), Visa/Mastercard via our secure payment gateway, and Bank Transfers. Cash on delivery is currently available for orders within East Legon and surrounding areas.'
+    answer: 'We accept Mobile Money (MoMo), Visa/Mastercard via our secure payment gateway, and Bank Transfers. Delivery is currently available across Accra and nationwide.'
   },
   
   // Quality Section

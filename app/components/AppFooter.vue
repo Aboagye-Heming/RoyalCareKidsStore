@@ -8,13 +8,13 @@
             class="flex items-center gap-3 bg-white p-4 rounded-[2rem] inline-flex"
           >
             <img
-              src="/logo.png"
+              src="/logo-vibrant.png"
               alt="Royal Care Kids Store"
               class="h-12 w-auto"
             />
           </div>
           <p class="text-slate-400 leading-relaxed text-sm">
-            Baby & mothercare essentials for your little royal 🍼 Premium
+            Baby & mothercare essentials for your little royal. Premium
             clothing, accessories, and gifts carefully curated for your family
             in Accra.
           </p>
@@ -91,11 +91,11 @@
                 name="lucide:map-pin"
                 class="text-primary-500 mt-1 shrink-0"
               />
-              <span>📍 Accra, Ghana<br />High-street, East Legon</span>
+              <span>📍 Accra, Ghana<br />Delivery to everywhere</span>
             </li>
             <li class="flex items-center gap-3 text-slate-400">
               <Icon name="lucide:phone" class="text-primary-500 shrink-0" />
-              <span>+233 (0) 55 123 4567</span>
+              <span>+233 50 158 7398</span>
             </li>
             <li class="flex items-center gap-3 text-slate-400">
               <Icon name="lucide:mail" class="text-primary-500 shrink-0" />
