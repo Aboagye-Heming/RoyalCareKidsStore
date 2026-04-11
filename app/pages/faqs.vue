@@ -1,24 +1,11 @@
 <template>
   <div class="bg-white min-h-screen">
     <!-- Hero Header -->
-    <section class="pt-40 pb-20 bg-primary-50 relative overflow-hidden">
-      <!-- Silicon Valley Mesh Background -->
-      <div class="absolute inset-0 z-0 opacity-40">
-        <div class="absolute top-[-20%] left-[-20%] w-[100%] h-[100%] bg-primary-400/40 rounded-full blur-[100px] animate-pulse"></div>
-        <div class="absolute bottom-[-20%] right-[-20%] w-[100%] h-[100%] bg-secondary-400/40 rounded-full blur-[100px] animate-pulse" style="animation-delay: 1s"></div>
-      </div>
-      
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-3xl">
-          <h1 class="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none mb-10">
-            Help <span class="text-primary-500 italic">Center</span>
-          </h1>
-          <p class="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-2xl">
-            Everything you need to know about shopping with Royal Care. Can't find what you're looking for? Ask our Royal Bot.
-          </p>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      variant="light"
+      title="Help <span class='text-primary-500 italic'>Center</span>"
+      subtitle="Everything you need to know about shopping with Royal Care. Can't find what you're looking for? Ask our Royal Bot."
+    />
 
     <!-- FAQ Content -->
     <section class="py-24 relative">
@@ -45,41 +32,14 @@
           <!-- FAQ Accordion -->
           <div class="lg:col-span-3">
             <div class="space-y-6">
-              <div 
-                v-for="(faq, index) in filteredFaqs" 
+              <FaqItem
+                v-for="(faq, index) in filteredFaqs"
                 :key="index"
-                class="group bg-slate-50 border border-slate-100 rounded-[3rem] overflow-hidden transition-all duration-500 hover:bg-white hover:shadow-2xl hover:border-white"
-              >
-                <button 
-                  @click="toggleFaq(index)"
-                  class="w-full text-left px-10 py-10 flex items-center justify-between gap-6"
-                >
-                  <span class="text-xl md:text-2xl font-black text-slate-900 tracking-tight leading-tight">
-                    {{ faq.question }}
-                  </span>
-                  <div 
-                    class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center transition-all duration-500 group-hover:bg-primary-500 group-hover:text-white"
-                    :class="{ 'rotate-180 bg-primary-500 text-white': openIndex === index }"
-                  >
-                    <Icon name="lucide:chevron-down" class="text-2xl" />
-                  </div>
-                </button>
-                
-                <transition
-                  enter-active-class="transition-all duration-500 ease-out"
-                  enter-from-class="max-h-0 opacity-0"
-                  enter-to-class="max-h-[500px] opacity-100"
-                  leave-active-class="transition-all duration-300 ease-in"
-                  leave-from-class="max-h-[500px] opacity-100"
-                  leave-to-class="max-h-0 opacity-0"
-                >
-                  <div v-if="openIndex === index" class="px-10 pb-10">
-                    <div class="h-px bg-slate-100 mb-8"></div>
-                    <div class="text-lg text-slate-600 leading-relaxed font-medium prose prose-slate max-w-none" v-html="faq.answer">
-                    </div>
-                  </div>
-                </transition>
-              </div>
+                :question="faq.question"
+                :answer="faq.answer"
+                :isOpen="openIndex === index"
+                @toggle="toggleFaq(index)"
+              />
             </div>
 
             <!-- Empty State -->

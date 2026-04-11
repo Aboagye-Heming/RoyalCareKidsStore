@@ -1,34 +1,11 @@
 <template>
   <div class="bg-white">
     <!-- Hero Section -->
-    <section class="relative pt-40 pb-20 overflow-hidden">
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-4xl">
-          <span
-            class="inline-block px-4 py-2 bg-primary-50 rounded-full text-primary-600 text-xs font-black uppercase tracking-widest mb-6"
-            >Our Story</span
-          >
-          <h1
-            class="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none mb-10"
-          >
-            For Your Little <br />
-            <span class="text-primary-500 italic">Royal</span>
-          </h1>
-          <p
-            class="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-2xl"
-          >
-            Royal Care Kids Store was founded with a simple mission: to provide
-            the most elegant, safe, and comfortable essentials for the next
-            generation of royals in Accra.
-          </p>
-        </div>
-      </div>
-
-      <!-- Abstract Background -->
-      <div
-        class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-10 translate-x-1/4"
-      ></div>
-    </section>
+    <PageHero
+      tag="Our Story"
+      title="For Your Little <br /> <span class='text-primary-500 italic'>Royal</span>"
+      subtitle="Royal Care Kids Store was founded with a simple mission: to provide the most elegant, safe, and comfortable essentials for the next generation of royals in Accra."
+    />
 
     <!-- CEO Section -->
     <section class="py-32 bg-slate-50 relative overflow-hidden">

@@ -1,21 +1,10 @@
 <template>
   <div class="bg-white">
     <!-- Hero Section -->
-    <section class="pt-40 pb-20 bg-slate-50">
-      <div class="container mx-auto px-6">
-        <div class="max-w-3xl">
-          <h1
-            class="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none mb-10"
-          >
-            Let's <span class="text-primary-500 italic">Connect</span>
-          </h1>
-          <p class="text-xl md:text-2xl text-slate-600 leading-relaxed">
-            Have a question about our collections or need help with an order?
-            Our team in Accra is here to assist you.
-          </p>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      title="Let's <span class='text-primary-500 italic'>Connect</span>"
+      subtitle="Have a question about our collections or need help with an order? Our team in Accra is here to assist you."
+    />
 
     <!-- Contact Info & Grid -->
     <section class="py-24">
