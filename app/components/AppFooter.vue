@@ -30,7 +30,7 @@
               />
             </a>
             <a
-              href="https://tiktok.com/@RoyalCareKidsStore"
+              href="https://www.tiktok.com/@royalcarekidsstore"
               target="_blank"
               class="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center hover:bg-slate-800 hover:scale-110 active:scale-95 transition-all duration-300 group shadow-lg"
             >

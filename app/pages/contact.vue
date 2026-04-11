@@ -75,7 +75,7 @@
                   <Icon name="lucide:instagram" class="text-2xl" />
                 </a>
                 <a
-                  href="https://tiktok.com/@RoyalCareKidsStore"
+                  href="https://www.tiktok.com/@royalcarekidsstore"
                   target="_blank"
                   class="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center hover:bg-slate-800 transition-all duration-300"
                 >
