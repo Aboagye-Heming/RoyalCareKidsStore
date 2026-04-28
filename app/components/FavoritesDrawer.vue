@@ -132,13 +132,24 @@
 </template>
 
 <script setup>
+import { watch, onUnmounted } from "vue";
 import { useCart } from "~/composables/useCart";
 
-defineProps({
+const props = defineProps({
   isOpen: Boolean,
 });
 
 defineEmits(["close"]);
+
+watch(() => props.isOpen, (val) => {
+  if (import.meta.client) {
+    document.body.style.overflow = val ? 'hidden' : ''
+  }
+})
+
+onUnmounted(() => {
+  if (import.meta.client) document.body.style.overflow = ''
+})
 
 const { favorites, toggleFavorite, addToCart } = useCart();
 
