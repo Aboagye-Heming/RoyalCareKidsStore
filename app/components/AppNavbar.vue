@@ -1,7 +1,8 @@
 <template>
   <nav
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-white/10"
+    class="fixed left-0 right-0 z-50 transition-all duration-300 border-b border-white/10"
     :class="[
+      bannerVisible ? 'top-10' : 'top-0',
       isScrolled || isMobileMenuOpen || !isHomePage
         ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm'
         : 'bg-transparent py-6',
@@ -226,6 +227,7 @@ defineEmits(["open-cart", "open-favorites"]);
 
 const route = useRoute();
 const { cartCount, favorites } = useCart();
+const { isVisible: bannerVisible } = useAnnouncement();
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 

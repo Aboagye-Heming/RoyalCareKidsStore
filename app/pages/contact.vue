@@ -183,6 +183,17 @@
 <script setup>
 import { reactive } from "vue";
 
+useHead({
+  title: 'Contact Us | Royal Care Kids Store',
+  meta: [
+    { name: 'description', content: 'Get in touch with Royal Care Kids Store. Reach us by phone, WhatsApp, or email. Located in Accra with nationwide delivery across Ghana.' },
+    { property: 'og:title', content: 'Contact Us | Royal Care Kids Store' },
+    { property: 'og:description', content: 'Have a question about our collections or need help with an order? Our team in Accra is here to help.' },
+    { property: 'og:image', content: '/logo-vibrant.png' },
+    { property: 'og:type', content: 'website' },
+  ]
+})
+
 const form = reactive({
   name: "",
   email: "",

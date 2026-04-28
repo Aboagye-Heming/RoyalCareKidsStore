@@ -85,6 +85,17 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+useHead({
+  title: 'FAQs | Royal Care Kids Store',
+  meta: [
+    { name: 'description', content: 'Frequently asked questions about Royal Care Kids Store — shipping, returns, product quality, sizing, and our Royal Bot assistant.' },
+    { property: 'og:title', content: 'Help Center | Royal Care Kids Store' },
+    { property: 'og:description', content: 'Everything you need to know about shopping with Royal Care. Orders, delivery, returns, and more.' },
+    { property: 'og:image', content: '/logo-vibrant.png' },
+    { property: 'og:type', content: 'website' },
+  ]
+})
+
 const activeCategory = ref('general')
 const openIndex = ref(null)
 

@@ -1,18 +1,20 @@
 <template>
   <div class="min-h-screen flex flex-col font-sans selection:bg-primary-500 selection:text-white">
+    <AnnouncementBanner />
     <AppNavbar @open-cart="isCartOpen = true" @open-favorites="isFavoritesOpen = true" />
-    
+
     <CartDrawer :is-open="isCartOpen" @close="isCartOpen = false" />
     <FavoritesDrawer :is-open="isFavoritesOpen" @close="isFavoritesOpen = false" />
     <Toast />
-    
+
     <main class="flex-grow">
       <slot />
     </main>
 
     <AppFooter />
-    
+
     <AIAssistant />
+    <ScrollToTop />
   </div>
 </template>
 

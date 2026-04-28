@@ -116,6 +116,17 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Our Story | Royal Care Kids Store',
+  meta: [
+    { name: 'description', content: 'Learn about the story, mission, and values behind Royal Care Kids Store — founded to bring premium baby essentials to families in Accra, Ghana.' },
+    { property: 'og:title', content: 'Our Story | Royal Care Kids Store' },
+    { property: 'og:description', content: 'Founded with love to give every little royal the best start in life. Learn our mission and values.' },
+    { property: 'og:image', content: '/images/royal.png' },
+    { property: 'og:type', content: 'website' },
+  ]
+})
+
 const values = [
   {
     title: "Elegance",

@@ -101,10 +101,8 @@
 
     <!-- Testimonials Section -->
     <section class="py-32 bg-slate-50 relative overflow-hidden">
-      <div class="container mx-auto px-6">
-        <div
-          class="flex flex-col md:flex-row items-end justify-between mb-20 gap-8"
-        >
+      <div class="container mx-auto px-6 mb-20">
+        <div class="flex flex-col md:flex-row items-end justify-between gap-8">
           <div class="max-w-2xl">
             <h2
               class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none mb-6"
@@ -116,13 +114,22 @@
             </p>
           </div>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <TestimonialCard
-            v-for="testimonial in testimonials"
-            :key="testimonial.id"
-            :testimonial="testimonial"
-          />
+      <!-- Scrolling ticker — two copies for seamless loop -->
+      <div
+        class="testimonial-track-wrapper"
+        @mouseenter="pauseScroll"
+        @mouseleave="resumeScroll"
+      >
+        <div ref="trackRef" class="testimonial-track">
+          <div
+            v-for="(testimonial, i) in [...testimonials, ...testimonials]"
+            :key="i"
+            class="testimonial-item"
+          >
+            <TestimonialCard :testimonial="testimonial" />
+          </div>
         </div>
       </div>
     </section>
@@ -143,13 +150,13 @@
         <h2
           class="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none mb-10 italic"
         >
-          📦 Shop Online Today
+          Shop Online Today
         </h2>
         <p class="text-2xl text-white/90 mb-12 max-w-2xl mx-auto font-medium">
           Fast delivery across Accra and beyond. Get the best for your little
           royal with just a few clicks.
         </p>
-        <div class="flex flex-wrap justify-center gap-6">
+        <div class="flex flex-wrap justify-center gap-6 mb-12">
           <div
             class="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white font-bold"
           >
@@ -162,14 +169,49 @@
             <Icon name="lucide:shield-check" class="text-2xl" />
             <span>Premium Quality</span>
           </div>
+          <div
+            class="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white font-bold"
+          >
+            <Icon name="lucide:heart" class="text-2xl" />
+            <span>Curated with Love</span>
+          </div>
         </div>
+        <NuxtLink
+          to="/shop"
+          class="inline-block px-12 py-6 bg-white text-primary-500 font-black text-sm uppercase tracking-[0.2em] rounded-full hover:bg-primary-50 shadow-2xl transition-all hover:scale-105 active:scale-95"
+        >
+          Browse the Collection
+        </NuxtLink>
       </div>
     </section> -->
   </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, nextTick } from "vue";
+import { onMounted, ref } from "vue";
+
+useHead({
+  title:
+    "Royal Care Kids Store | Premium Baby & Mothercare Essentials in Accra",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Royal Care Kids Store — premium baby clothing, accessories, gifts, and mothercare essentials for your little royal. Fast delivery across Accra, Ghana.",
+    },
+    {
+      property: "og:title",
+      content: "Royal Care Kids Store | Baby & Mothercare Essentials",
+    },
+    {
+      property: "og:description",
+      content:
+        "Premium baby & kids essentials curated with love in Accra. Clothing, accessories, gifts and care items.",
+    },
+    { property: "og:image", content: "/images/hero-nursery.jpg" },
+    { property: "og:type", content: "website" },
+  ],
+});
 import gsap from "gsap";
 
 const slides = [
@@ -244,7 +286,6 @@ const testimonials = [
     id: 1,
     text: "The quality of the clothing is exceptional. My baby feels so comfortable, and the colors stay vibrant even after many washes. Truly royal care!",
     author: "Sarah Mensah",
-    role: "Mother of 2",
     avatar: "https://i.pravatar.cc/150?u=sarah",
     platform: "Instagram",
     link: "https://instagram.com/RoyalCareKidsStore",
@@ -253,7 +294,6 @@ const testimonials = [
     id: 2,
     text: "Ordered a gift set for my sister, and she was blown away by the premium packaging and thoughtful selection of items. The best baby store in Accra!",
     author: "Kofi Owusu",
-    role: "Happy Customer",
     avatar: "https://i.pravatar.cc/150?u=kofi",
     platform: "Instagram",
     link: "https://instagram.com/RoyalCareKidsStore",
@@ -262,12 +302,20 @@ const testimonials = [
     id: 3,
     text: "Fast delivery and amazing customer service. They really go above and beyond to make sure you have everything you need for your little one.",
     author: "Akosua Addo",
-    role: "New Mom",
     avatar: "https://i.pravatar.cc/150?u=akosua",
     platform: "Facebook",
     link: "https://www.facebook.com/RoyalCareKidsStore",
   },
 ];
+
+const trackRef = ref(null);
+
+const pauseScroll = () => {
+  if (trackRef.value) trackRef.value.style.animationPlayState = "paused";
+};
+const resumeScroll = () => {
+  if (trackRef.value) trackRef.value.style.animationPlayState = "running";
+};
 
 onMounted(() => {
   gsap.to(".hero-animate", {
@@ -301,8 +349,49 @@ const scrollToCategories = () => {
     transform: translateY(-30px) rotate(5deg);
   }
 }
-
 .animate-float {
   animation: float 8s ease-in-out infinite;
+}
+
+/* Testimonial infinite scroll */
+.testimonial-track-wrapper {
+  overflow: hidden;
+  /* edge fade */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll-left 28s linear infinite;
+  will-change: transform;
+}
+
+.testimonial-item {
+  width: 380px;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 </style>

@@ -23,12 +23,6 @@
           {{ testimonial.author }}
         </h4>
         <div class="flex items-center gap-2">
-          <p
-            class="text-slate-400 text-[10px] tracking-widest uppercase font-black"
-          >
-            {{ testimonial.role }}
-          </p>
-          <span class="w-1 h-1 rounded-full bg-slate-300"></span>
           <a
             v-if="testimonial.link"
             :href="testimonial.link"
@@ -55,7 +49,7 @@
 defineProps({
   testimonial: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 });
 </script>
