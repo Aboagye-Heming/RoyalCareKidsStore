@@ -45,7 +45,7 @@
         {{ name }}
       </h3>
       <div class="flex items-center justify-between">
-        <span class="text-slate-900 font-extrabold text-xl">GHS {{ price }}</span>
+        <span class="text-slate-900 font-extrabold text-xl">GHS {{ price.toFixed(2) }}</span>
       </div>
     </div>
   </div>

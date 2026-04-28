@@ -99,7 +99,7 @@
             </p>
             <div class="flex items-center justify-between pt-2">
               <span class="font-extrabold text-slate-900"
-                >GHS {{ item.price }}</span
+                >GHS {{ item.price.toFixed(2) }}</span
               >
               <button
                 @click="handleAddToCart(item)"

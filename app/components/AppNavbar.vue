@@ -155,7 +155,7 @@
         >
           <div
             v-if="isMobileMenuOpen"
-            class="relative w-full max-w-sm bg-white/40 backdrop-blur-3xl rounded-[4rem] border border-white/40 shadow-[0_32px_128px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col max-h-[85vh]"
+            class="relative w-full max-w-sm bg-white/40 backdrop-blur-3xl rounded-[3rem] border border-white/40 shadow-[0_32px_128px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col"
           >
             <!-- Dynamic Mesh Gradient Background -->
             <div class="absolute inset-0 -z-10 opacity-30">
@@ -169,44 +169,42 @@
             </div>
 
             <!-- Header (Centered Logo) -->
-            <div class="flex flex-col items-center pt-12 pb-6 text-center">
-              <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 mb-2">
-                <img src="/logo-vibrant.png" alt="Royal Care" class="h-8 w-auto" />
+            <div class="flex flex-col items-center pt-7 pb-3 text-center">
+              <div class="bg-white p-2.5 rounded-2xl shadow-sm border border-slate-100 mb-1.5">
+                <img src="/logo-vibrant.png" alt="Royal Care" class="h-7 w-auto" />
               </div>
               <span class="text-[9px] font-black text-primary-600 uppercase tracking-[0.4em]">Navigator</span>
             </div>
 
-            <!-- Staggered Glassy Links (Balanced Spacing) -->
-            <div
-              class="flex-1 px-8 py-4 flex flex-col justify-center space-y-1 text-center overflow-y-auto"
-            >
+            <!-- Nav Links -->
+            <div class="px-6 py-2 flex flex-col text-center gap-0.5">
               <NuxtLink
                 v-for="(link, idx) in navLinks"
                 :key="link.path"
                 :to="link.path"
                 @click="handleNavClick(link.path)"
-                class="group relative py-4 rounded-[2.5rem] transition-all duration-500 hover:bg-white/40 border border-transparent hover:border-white/60 animate-in fade-in zoom-in-95"
+                class="group relative py-2.5 rounded-[2rem] transition-all duration-500 hover:bg-white/40 border border-transparent hover:border-white/60 animate-in fade-in zoom-in-95"
                 :style="{ animationDelay: `${idx * 100}ms` }"
               >
                 <div class="flex flex-col items-center">
                   <span
-                    class="text-[9px] font-black text-primary-500 uppercase tracking-[0.4em] mb-1 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                    class="text-[8px] font-black text-primary-500 uppercase tracking-[0.4em] mb-0.5 opacity-0 group-hover:opacity-100 transition-all duration-500"
                     >Discover</span
                   >
                   <span
-                    class="text-3xl font-black text-slate-900 tracking-tighter group-active:scale-95 transition-all duration-500"
+                    class="text-2xl font-black text-slate-900 tracking-tighter group-active:scale-95 transition-all duration-500"
                     >{{ link.name }}</span
                   >
                 </div>
               </NuxtLink>
             </div>
 
-            <!-- Futuristic Footer -->
-            <div class="p-10 flex justify-center">
+            <!-- Explore Marketplace Button -->
+            <div class="px-6 pt-3 pb-7">
               <NuxtLink
                 to="/shop"
                 @click="handleNavClick('/shop')"
-                class="block w-full py-6 bg-slate-900 text-white text-center rounded-[2rem] font-black uppercase tracking-widest shadow-2xl active:scale-95 transition-all text-[10px]"
+                class="block w-full py-5 bg-slate-900 text-white text-center rounded-[1.5rem] font-black uppercase tracking-widest shadow-2xl active:scale-95 transition-all text-[10px]"
               >
                 Explore Marketplace
               </NuxtLink>

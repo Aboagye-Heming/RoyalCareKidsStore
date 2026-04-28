@@ -99,7 +99,7 @@
             </p>
             <div class="flex items-center justify-between pt-2">
               <span class="font-extrabold text-slate-900"
-                >GHS {{ item.price }}</span
+                >GHS {{ item.price.toFixed(2) }}</span
               >
               <div
                 class="flex items-center gap-3 bg-white rounded-xl border border-slate-100 px-3 py-1 scale-90"
@@ -135,7 +135,7 @@
             class="flex justify-between text-slate-400 font-bold uppercase tracking-widest text-xs"
           >
             <span>Subtotal</span>
-            <span>GHS {{ cartTotal }}</span>
+            <span>GHS {{ cartTotal.toFixed(2) }}</span>
           </div>
           <div
             class="flex justify-between text-slate-400 font-bold uppercase tracking-widest text-xs"
@@ -147,7 +147,7 @@
             class="flex justify-between text-xl font-black text-slate-900 border-t border-slate-200 pt-4"
           >
             <span>Total</span>
-            <span>GHS {{ cartTotal }}</span>
+            <span>GHS {{ cartTotal.toFixed(2) }}</span>
           </div>
         </div>
 
@@ -201,11 +201,11 @@ const checkoutViaWhatsApp = () => {
 
   cart.value.forEach((item) => {
     message += `🛒 *${item.name}* x${item.quantity}%0A`;
-    message += `   Price: GHS ${item.price * item.quantity}%0A%0A`;
+    message += `   Price: GHS ${(item.price * item.quantity).toFixed(2)}%0A%0A`;
   });
 
   message += `━━━━━━━━━━━━━━━━━━━━%0A`;
-  message += `💰 *Total Amount: GHS ${cartTotal.value}*%0A%0A`;
+  message += `💰 *Total Amount: GHS ${cartTotal.value.toFixed(2)}*%0A%0A`;
   message += `📍 Please let me know the delivery location in Accra!`;
 
   window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");

@@ -10,9 +10,6 @@
     <!-- CEO Section -->
     <section class="py-32 bg-slate-50 relative overflow-hidden">
       <!-- Rainbow accent -->
-      <div
-        class="absolute top-0 left-0 w-full h-2 bg-rainbow-gradient animate-rainbow bg-200%"
-      ></div>
 
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -117,15 +114,23 @@
 
 <script setup>
 useHead({
-  title: 'Our Story | Royal Care Kids Store',
+  title: "Our Story | Royal Care Kids Store",
   meta: [
-    { name: 'description', content: 'Learn about the story, mission, and values behind Royal Care Kids Store — founded to bring premium baby essentials to families in Accra, Ghana.' },
-    { property: 'og:title', content: 'Our Story | Royal Care Kids Store' },
-    { property: 'og:description', content: 'Founded with love to give every little royal the best start in life. Learn our mission and values.' },
-    { property: 'og:image', content: '/images/royal.png' },
-    { property: 'og:type', content: 'website' },
-  ]
-})
+    {
+      name: "description",
+      content:
+        "Learn about the story, mission, and values behind Royal Care Kids Store — founded to bring premium baby essentials to families in Accra, Ghana.",
+    },
+    { property: "og:title", content: "Our Story | Royal Care Kids Store" },
+    {
+      property: "og:description",
+      content:
+        "Founded with love to give every little royal the best start in life. Learn our mission and values.",
+    },
+    { property: "og:image", content: "/images/royal.png" },
+    { property: "og:type", content: "website" },
+  ],
+});
 
 const values = [
   {

@@ -156,7 +156,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
 useHead({
   title: 'Shop | Royal Care Kids Store',
@@ -169,6 +170,7 @@ useHead({
   ]
 })
 
+const route = useRoute()
 const activeCategory = ref('All')
 const sortBy = ref('newest')
 const currentPage = ref(1)
@@ -241,6 +243,13 @@ const totalPages = computed(() => Math.ceil(filteredProducts.value.length / item
 const paginatedProducts = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
   return filteredProducts.value.slice(start, start + itemsPerPage)
+})
+
+onMounted(() => {
+  const cat = route.query.category
+  if (cat && categories.includes(String(cat))) {
+    activeCategory.value = String(cat)
+  }
 })
 
 const resetFilters = () => {

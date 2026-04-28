@@ -4,7 +4,7 @@
     <PageHero
       variant="light"
       title="Help <span class='text-primary-500 italic'>Center</span>"
-      subtitle="Everything you need to know about shopping with Royal Care. Can't find what you're looking for? Ask our Royal Bot."
+      subtitle="Everything you need to know about shopping with Royal Care. Can't find what you're looking for? Ask our Mama Royal AI."
     />
 
     <!-- FAQ Content -->
@@ -74,7 +74,7 @@
             @click="openChat"
             class="px-12 py-6 bg-primary-600 text-white font-black text-sm uppercase tracking-[0.2em] rounded-full hover:bg-primary-700 transition-all shadow-2xl active:scale-95 border-b-4 border-primary-900"
           >
-            Chat with Royal Bot
+            Chat with Mama Royal AI
           </button>
         </div>
       </div>
@@ -88,7 +88,7 @@ import { ref, computed } from 'vue'
 useHead({
   title: 'FAQs | Royal Care Kids Store',
   meta: [
-    { name: 'description', content: 'Frequently asked questions about Royal Care Kids Store — shipping, returns, product quality, sizing, and our Royal Bot assistant.' },
+    { name: 'description', content: 'Frequently asked questions about Royal Care Kids Store — shipping, returns, product quality, sizing, and our Mama Royal AI assistant.' },
     { property: 'og:title', content: 'Help Center | Royal Care Kids Store' },
     { property: 'og:description', content: 'Everything you need to know about shopping with Royal Care. Orders, delivery, returns, and more.' },
     { property: 'og:image', content: '/logo-vibrant.png' },
@@ -100,18 +100,18 @@ const activeCategory = ref('general')
 const openIndex = ref(null)
 
 const faqCategories = [
-  { id: 'general', name: 'The Royal Bot' },
+  { id: 'general', name: 'The Mama Royal AI' },
   { id: 'orders', name: 'Orders & Delivery' },
   { id: 'products', name: 'Quality & Sizing' },
   { id: 'returns', name: 'Returns & Policy' }
 ]
 
 const faqs = [
-  // Royal Bot Section
+  // Mama Royal AI Section
   {
     category: 'general',
-    question: 'How does the Royal Bot v4.0.1 work?',
-    answer: `<p>Our <strong>Royal Bot</strong> is your personal shopping assistant powered by advanced algorithms to help you find precisely what your little royal needs. It features:</p>
+    question: 'How does Mama Royal AI work?',
+    answer: `<p>Our <strong>Mama Royal AI</strong> is your personal shopping assistant powered by advanced algorithms to help you find precisely what your little royal needs. It features:</p>
              <ul class="list-disc pl-5 space-y-2 mt-4">
                <li><strong>Voice Search:</strong> Use the microphone icon to speak your requests naturally.</li>
                <li><strong>Instant Recommendations:</strong> Ask about specific categories like "clothing" or "gifts".</li>
@@ -120,13 +120,13 @@ const faqs = [
   },
   {
     category: 'general',
-    question: 'Is my conversation with the Royal Bot private?',
-    answer: 'Absolutely. We take your privacy seriously. The Royal Bot data is used solely to improve your shopping experience and provide more relevant product recommendations. We do not share your transcripts with third parties.'
+    question: 'Is my conversation with the Mama Royal AI private?',
+    answer: 'Absolutely. We take your privacy seriously. The Mama Royal AI data is used solely to improve your shopping experience and provide more relevant product recommendations. We do not share your transcripts with third parties.'
   },
   {
     category: 'general',
-    question: 'Can the Royal Bot help with my order status?',
-    answer: 'Currently, the Royal Bot is specialized in product discovery and general inquiries. For specific order tracking, please contact our support team via WhatsApp or reach out through our contact form.'
+    question: 'Can the Mama Royal AI help with my order status?',
+    answer: 'Currently, the Mama Royal AI is specialized in product discovery and general inquiries. For specific order tracking, please contact our support team via WhatsApp or reach out through our contact form.'
   },
   
   // Orders & Delivery Section

@@ -29,7 +29,7 @@
             </div>
             <div>
               <h3 class="text-slate-900 font-black text-sm tracking-tight flex items-center gap-2">
-                Royal Bot v4.0.1
+                Mama Royal AI
                 <span class="px-2 py-0.5 bg-primary-500/10 text-primary-600 text-[8px] uppercase tracking-widest rounded-full">Pro</span>
               </h3>
               <div class="flex items-center gap-2">
@@ -114,18 +114,10 @@
             <input
               v-model="userInput"
               type="text"
-              placeholder="System prompt..."
+              placeholder="Type a message..."
               class="flex-1 bg-white/50 border border-white/40 rounded-2xl px-6 py-3 text-sm outline-none focus:border-primary-400 focus:bg-white transition-all font-medium placeholder:text-slate-400"
               @keyup.enter="sendMessage"
             />
-            <button
-              @click="toggleListening"
-              class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl transition-all active:scale-95 group relative overflow-hidden"
-              :class="isListening ? 'bg-secondary-500 text-white animate-pulse' : 'bg-primary-600 text-white hover:bg-primary-700'"
-            >
-              <div v-if="isListening" class="absolute inset-0 bg-secondary-400 animate-ping opacity-20"></div>
-              <Icon :name="isListening ? 'lucide:mic-off' : 'lucide:mic'" class="w-5 h-5 transition-transform" :class="{ 'scale-110': isListening }" />
-            </button>
             <button
               @click="sendMessage"
               class="w-12 h-12 bg-primary-600 text-white rounded-2xl flex items-center justify-center shadow-xl hover:bg-primary-700 transition-all active:scale-95 group"
@@ -133,9 +125,6 @@
               <Icon name="lucide:send" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
-          <p v-if="isListening" class="text-[9px] text-center text-secondary-500 font-black uppercase tracking-widest animate-pulse">
-            Transcribing audio stream...
-          </p>
         </div>
       </div>
     </transition>
@@ -143,16 +132,16 @@
     <!-- Floating Toggle Button -->
     <button
       @click="toggleChat"
-      class="group w-20 h-20 bg-primary-600 rounded-[2.5rem] shadow-[0_24px_48px_rgba(0,0,0,0.3)] flex items-center justify-center text-white hover:scale-105 transition-all duration-500 relative overflow-hidden border-4 border-white/20"
+      class="group w-14 h-14 md:w-20 md:h-20 bg-primary-600 rounded-[1.75rem] md:rounded-[2.5rem] shadow-[0_24px_48px_rgba(0,0,0,0.3)] flex items-center justify-center text-white hover:scale-105 transition-all duration-500 relative overflow-hidden border-4 border-white/20"
       :class="isOpen ? 'bg-secondary-500 rotate-90 scale-90' : ''"
     >
       <div v-if="!isOpen" class="absolute inset-0 bg-gradient-to-tr from-primary-400/20 to-transparent"></div>
       <Icon
         v-if="!isOpen"
         name="lucide:sparkles"
-        class="w-8 h-8 text-white group-hover:scale-110 group-hover:rotate-12 transition-transform"
+        class="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 group-hover:rotate-12 transition-transform"
       />
-      <Icon v-else name="lucide:x" class="w-8 h-8" />
+      <Icon v-else name="lucide:x" class="w-6 h-6 md:w-8 md:h-8" />
     </button>
   </div>
 </template>

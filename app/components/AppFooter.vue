@@ -72,12 +72,12 @@
         <div>
           <h4 class="text-lg font-bold mb-6">Shop by Category</h4>
           <ul class="space-y-4">
-            <li v-for="cat in categories" :key="cat">
+            <li v-for="cat in categories" :key="cat.name">
               <NuxtLink
-                to="/shop"
+                :to="cat.path"
                 class="text-slate-400 hover:text-primary-500 transition-colors duration-300"
               >
-                {{ cat }}
+                {{ cat.name }}
               </NuxtLink>
             </li>
           </ul>
@@ -139,10 +139,10 @@ const links = [
 ];
 
 const categories = [
-  "Clothing",
-  "Accessories",
-  "Gifts",
-  "Care Items",
-  "New Arrivals",
+  { name: "Clothing",     path: "/shop?category=Clothing" },
+  { name: "Accessories",  path: "/shop?category=Accessories" },
+  { name: "Gifts",        path: "/shop?category=Gifts" },
+  { name: "Care Items",   path: "/shop?category=Care+Items" },
+  { name: "New Arrivals", path: "/shop" },
 ];
 </script>

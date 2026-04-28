@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group bg-slate-50 border border-slate-100 rounded-[3rem] overflow-hidden transition-all duration-500 hover:bg-white hover:shadow-2xl hover:border-white"
+    class="group bg-slate-50 border border-slate-100 rounded-[3rem] overflow-hidden transition-all duration-500 hover:bg-white hover:border-slate-200"
   >
     <button
       @click="$emit('toggle')"
