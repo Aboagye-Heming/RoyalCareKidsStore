@@ -1,8 +1,11 @@
 <template>
   <div class="group relative aspect-[16/9] overflow-hidden rounded-[2.5rem] bg-slate-100 cursor-pointer">
-    <img 
-      :src="image" 
-      :alt="name"
+    <img
+      :src="image"
+      :alt="name + ' category'"
+      loading="lazy"
+      width="800"
+      height="450"
       class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-1"
     />
     

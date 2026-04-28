@@ -147,57 +147,21 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted } from "vue";
+import { ref, nextTick } from "vue";
 
 const isOpen = ref(false);
 const showOptions = ref(true);
 const isTyping = ref(false);
-const isListening = ref(false);
 const userInput = ref("");
 const messages = ref([]);
 const messagesContainer = ref(null);
 
-let recognition = null;
-
-onMounted(() => {
-  if (process.client) {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (SpeechRecognition) {
-      recognition = new SpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'en-US';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        userInput.value = transcript;
-        isListening.value = false;
-      };
-
-      recognition.onerror = () => {
-        isListening.value = false;
-      };
-
-      recognition.onend = () => {
-        isListening.value = false;
-      };
-    }
-  }
-});
-
-const toggleListening = () => {
-  if (!recognition) {
-    alert("Speech recognition is not supported in your browser.");
-    return;
-  }
-
-  if (isListening.value) {
-    recognition.stop();
-  } else {
-    isListening.value = true;
-    recognition.start();
-  }
-};
+const quickOptions = [
+  { id: 'new',     label: 'Browse New Arrivals',   icon: 'lucide:sparkles' },
+  { id: 'gift',    label: 'Find a Gift',            icon: 'lucide:gift' },
+  { id: 'care',    label: 'Baby Care Products',     icon: 'lucide:heart' },
+  { id: 'contact', label: 'Contact Support',        icon: 'lucide:headphones' },
+];
 
 const toggleChat = () => {
   isOpen.value = !isOpen.value;

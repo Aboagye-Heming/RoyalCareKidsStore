@@ -2,9 +2,12 @@
   <div class="group relative bg-white rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-slate-100">
     <!-- Image -->
     <div class="aspect-[4/5] overflow-hidden bg-slate-50 relative">
-      <img 
-        :src="image" 
+      <img
+        :src="image"
         :alt="name"
+        loading="lazy"
+        width="400"
+        height="500"
         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
       
